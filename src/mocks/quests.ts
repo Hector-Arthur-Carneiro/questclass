@@ -11,4 +11,13 @@ export const quests: Quest[] = [
     dueDate: "15 ago",
     reward: { xp: 100, coins: 20 },
   },
+  {
+    id: "Ogro-do-Estado",
+    title: "Derrote o Ogro do Estado",
+    description:
+      "Crie um componente React Native que utilize o hook useState para gerenciar o estado interno do componente.",
+    difficulty: "Média",
+    dueDate: "15 ago",
+    reward: { xp: 100, coins: 20 },
+  },
 ];
