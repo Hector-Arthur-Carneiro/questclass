@@ -8,8 +8,8 @@ export const quests: Quest[] = [
     description:
       "Crie um componente React Native que receba dados por props tipadas com TypeScript.",
     difficulty: "Média",
-    dueDate: "15 ago",
-    reward: { xp: 100, coins: 20 },
+    dueDate: "15 de agosto",
+    reward: { xp: 100, coins: 20, item: "null" },
   },
   {
     id: "Ogro-do-Estado",

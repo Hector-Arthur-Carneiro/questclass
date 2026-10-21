@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { colors, fonts } from "../theme";
+import { rewardColors } from "../types/domain"
 
 type RewardBadgeProps = {
   amount: number;
@@ -8,11 +9,12 @@ type RewardBadgeProps = {
 
 export function RewardBadge({ amount, kind }: RewardBadgeProps) {
   const isXp = kind === "xp";
+  const color = rewardColors[kind].main;
 
   return (
     <View style={styles.badge}>
       <Text
-        style={[styles.text, { color: isXp ? colors.green : colors.orange }]}
+        style={[styles.text, { color }]}
       >
         +{amount} {isXp ? "XP" : "moedas"}
       </Text>

@@ -1,8 +1,9 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Quest } from "../types/domain";
+import { difficultyColors, Quest } from "../types/domain";
 import { colors, fonts } from "../theme";
 import { Icon } from "./Icon";
 import { RewardBadge } from "./RewardBadge";
+import { quests } from "../mocks/quests";
 
 type MissionCardProps = {
   quest: Quest;
@@ -10,6 +11,8 @@ type MissionCardProps = {
 };
 
 export function MissionCard({ quest, onPress }: MissionCardProps) {
+  const color = difficultyColors[quest.difficulty];
+
   return (
     <Pressable
       onPress={onPress}
@@ -24,8 +27,10 @@ export function MissionCard({ quest, onPress }: MissionCardProps) {
         <View style={styles.details}>
           <Text style={styles.title}>{quest.title}</Text>
           <View style={styles.metadata}>
-            <View style={styles.difficultyBadge}>
-              <Text style={styles.difficulty}>{quest.difficulty}</Text>
+            <View style={[styles.difficultyBadge, { borderColor: color.main}]}>
+              <Text style={[styles.difficulty, { color: color.main }]}>
+                {quest.difficulty}
+              </Text>
             </View>
             {quest.dueDate && (
               <Text style={styles.dueDate}>Entrega: {quest.dueDate}</Text>
@@ -85,12 +90,12 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     borderRadius: 4,
     backgroundColor: colors.border,
+    borderWidth: 1.5,
   },
   difficulty: {
     fontFamily: fonts.bold,
     fontSize: 11,
     lineHeight: 13,
-    color: colors.orange,
   },
   dueDate: {
     fontFamily: fonts.regular,

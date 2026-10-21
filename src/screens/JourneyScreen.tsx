@@ -12,7 +12,7 @@ import { showMessage } from "../utils/showMessage";
 import { router } from "expo-router";
 
 export function JourneyScreen() {
-  const featuredQuest = quests[1];
+  const featuredQuest = quests[0];
 
   function handleMenuSelect(section: MenuSection) {
     if (section === "Jornada") {
